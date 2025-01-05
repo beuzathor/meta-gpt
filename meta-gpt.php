@@ -1,9 +1,12 @@
 <?php
 /**
  * Plugin Name: Meta GPT Generator
+ * Plugin URI: https://github.com/beuzathor/meta-gpt
  * Description: Génère et met à jour les meta titles et descriptions avec ChatGPT
  * Version: 1.1
- * Author: Your Name
+ * Author: beuzathor
+ * Author URI: https://github.com/beuzathor/meta-gpt
+ * License: GPL-2.0+
  */
 
 // Sécurité
