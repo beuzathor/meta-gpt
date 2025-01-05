@@ -14,10 +14,18 @@ defined('ABSPATH') or die('Access denied');
 
 
 if (is_admin()) {
-    require_once(plugin_dir_path(__FILE__) . 'updater.php');
-    $updater = new PluginGitHubUpdater(__FILE__);
-    $updater->set_username('beuzathor');  // Votre nom d'utilisateur GitHub
-    $updater->set_repository('meta-gpt');  // Le nom exact du repo
+    define('GH_REQUEST_URI', 'https://api.github.com/repos/%s/%s/releases');
+    define('GHPU_USERNAME', 'beuzathor');
+    define('GHPU_REPOSITORY', 'meta-gpt');
+
+    // Si vous voulez utiliser un token GitHub (optionnel pour un repo public)
+    // define('GHPU_AUTH_TOKEN', 'votre_token_github');
+    // Pour un repo public, vous pouvez mettre une chaîne vide :
+    define('GHPU_AUTH_TOKEN', '');
+
+    include_once plugin_dir_path(__FILE__) . '/GhPluginUpdater.php';
+    $updater = new GhPluginUpdater(__FILE__);
+    $updater->init();
 }
 
 
