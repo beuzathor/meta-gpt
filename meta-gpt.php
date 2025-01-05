@@ -12,6 +12,15 @@
 // Sécurité
 defined('ABSPATH') or die('Access denied');
 
+
+if (is_admin()) {
+    require_once(plugin_dir_path(__FILE__) . 'updater.php');
+    $updater = new PluginGitHubUpdater(__FILE__);
+    $updater->set_username('beuzathor');  // Votre nom d'utilisateur GitHub
+    $updater->set_repository('meta-gpt');  // Le nom exact du repo
+}
+
+
 // Ajouter le menu admin
 add_action('admin_menu', 'meta_gpt_menu');
 function meta_gpt_menu() {
