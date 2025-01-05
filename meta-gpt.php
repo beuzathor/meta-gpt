@@ -21,6 +21,8 @@ defined('ABSPATH') or die('Access denied');
 
 
 
+
+
 // Ajouter le menu admin
 add_action('admin_menu', 'meta_gpt_menu');
 function meta_gpt_menu() {
